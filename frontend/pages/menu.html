@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Management</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Menu CSS -->
+    <link rel="stylesheet" href="../css/menu.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../Images/logo.png" alt="Restaurant Logo">
+            </div>
+
+
+            <ul class="sidebar-menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+
+
+                <li class="active">
+                    <a href="menu.html">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="tables.html">
+                        <i class="fa-solid fa-table"></i>
+                        <span>Tables</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="staff.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Staff</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="reports.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <button class="logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- HEADER -->
+
+            <header class="top-header">
+
+
+                <div>
+
+                    <h1>Menu Management</h1>
+
+                    <p>
+                        Manage your restaurant menu and products
+                    </p>
+
+                </div>
+
+
+                <div class="header-actions">
+
+                    <button
+                        class="add-category-btn"
+                        id="addCategoryBtn">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Category
+
+                    </button>
+
+
+                    <button
+                        class="add-product-btn"
+                        id="addProductBtn">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Product
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ================= SEARCH ================= -->
+
+            <section class="menu-tools">
+
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchProduct"
+                        placeholder="Search products...">
+
+                </div>
+
+
+                <div class="product-count">
+
+                    <span id="productCount">
+                        0 Products
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= CATEGORY TABS ================= -->
+
+            <section class="category-section">
+
+                <div
+                    class="category-tabs"
+                    id="categoryTabs">
+
+                    <!-- JavaScript will generate categories -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= PRODUCTS ================= -->
+
+            <section
+                class="products-grid"
+                id="productsGrid">
+
+                <!-- JavaScript will generate products -->
+
+            </section>
+
+
+
+            <!-- ================= EMPTY STATE ================= -->
+
+            <div
+                class="empty-state"
+                id="emptyState">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                <h2>No Products Found</h2>
+
+                <p>
+                    Try another search or add a new product.
+                </p>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================= ADD PRODUCT MODAL ================= -->
+
+    <div
+        class="modal"
+        id="productModal">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h2 id="productModalTitle">
+                    Add Product
+                </h2>
+
+                <button
+                    class="close-btn"
+                    id="closeProductModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="productForm">
+
+
+                <input
+                    type="hidden"
+                    id="editProductId">
+
+
+                <label>
+                    Product Name
+                </label>
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="e.g. Chicken Burger"
+                    required>
+
+
+                <label>
+                    Price
+                </label>
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="e.g. 199"
+                    min="0"
+                    required>
+
+
+                <label>
+                    Category
+                </label>
+
+                <select
+                    id="productCategory"
+                    required>
+
+                </select>
+
+
+                <label>
+                    Type
+                </label>
+
+                <div class="type-options">
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="foodType"
+                            value="Veg"
+                            checked>
+
+                        <span class="veg-dot"></span>
+
+                        Veg
+
+                    </label>
+
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="foodType"
+                            value="Non-Veg">
+
+                        <span class="nonveg-dot"></span>
+
+                        Non-Veg
+
+                    </label>
+
+                </div>
+
+
+                <label>
+                    Image URL
+                </label>
+
+                <input
+                    type="text"
+                    id="productImage"
+                    placeholder="Optional image URL">
+
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    Save Product
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= CATEGORY MODAL ================= -->
+
+    <div
+        class="modal"
+        id="categoryModal">
+
+
+        <div class="modal-content small-modal">
+
+
+            <div class="modal-header">
+
+                <h2>
+                    Add Category
+                </h2>
+
+                <button
+                    class="close-btn"
+                    id="closeCategoryModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="categoryForm">
+
+
+                <label>
+                    Category Name
+                </label>
+
+
+                <input
+                    type="text"
+                    id="categoryName"
+                    placeholder="e.g. Snacks"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    Add Category
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="../js/menu.js"></script>
+
+</body>
+
+</html>

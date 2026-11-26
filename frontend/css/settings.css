@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #dce9fa;
+    color: #111;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    min-height: 100vh;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 285px;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: #1d1e3b;
+
+    padding: 35px 22px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 45px;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+
+/* ================= SIDEBAR MENU ================= */
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.sidebar-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu li.active a {
+    background: #ff8500;
+    color: white;
+}
+
+.sidebar-menu i {
+    width: 22px;
+    text-align: center;
+}
+
+
+/* ================= LOGOUT ================= */
+
+.logout {
+    margin-top: auto;
+
+    border: none;
+
+    background: #ff4d55;
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    transition: 0.3s;
+}
+
+.logout:hover {
+    background: #e63c45;
+}
+
+
+/* ================= MAIN ================= */
+
+.main {
+    margin-left: 285px;
+
+    min-height: 100vh;
+
+    padding: 70px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ================= SETTINGS FORM ================= */
+
+.main > h1 {
+    width: 560px;
+
+    margin-bottom: 25px;
+
+    color: #064f4c;
+
+    font-size: 34px;
+}
+
+
+/* ================= FORM ================= */
+
+#settingsForm {
+
+    width: 560px;
+
+    background: #eaf4ff;
+
+    padding: 40px 65px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #064f4c;
+}
+
+
+/* ================= INPUT ================= */
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    padding: 12px 20px;
+
+    border: 1px solid #7caeb0;
+
+    border-radius: 15px;
+
+    background: #d8eef3;
+
+    color: #075b58;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #129b88;
+
+    box-shadow: 0 0 0 3px rgba(18, 155, 136, 0.12);
+}
+
+
+/* ================= ADDRESS ================= */
+
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px 20px;
+
+    border: 1px solid #7caeb0;
+
+    border-radius: 15px;
+
+    background: #d8eef3;
+
+    color: #075b58;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    resize: vertical;
+
+    outline: none;
+}
+
+
+/* ================= SMALL TEXT ================= */
+
+.form-group small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #7da1a5;
+
+    font-size: 14px;
+}
+
+
+/* ================= SAVE BUTTON ================= */
+
+#settingsForm button {
+
+    margin-top: 10px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #159681;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#settingsForm button:hover {
+
+    background: #107c6b;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 80px;
+        padding: 25px 10px;
+    }
+
+    .logo img {
+        width: 55px;
+    }
+
+    .sidebar-menu a {
+        justify-content: center;
+        padding: 15px 10px;
+    }
+
+    .sidebar-menu span,
+    .logout span {
+        display: none;
+    }
+
+    .main {
+        margin-left: 80px;
+        padding: 40px 25px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .main {
+        margin-left: 80px;
+        padding: 30px 15px;
+    }
+
+    .main > h1 {
+        width: 100%;
+        font-size: 28px;
+    }
+
+    #settingsForm {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+}

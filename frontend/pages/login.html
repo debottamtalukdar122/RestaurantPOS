@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/login.css"
+    >
+
+    <title>Restaurant Login</title>
+
+</head>
+
+
+<body>
+
+
+<div id="main">
+
+
+    <div id="container">
+
+
+        <!-- LOGO -->
+
+        <img
+            src="../images/logo.png"
+            alt="Restaurant POS Logo"
+        >
+
+
+        <!-- INTRO -->
+
+        <div id="elem">
+
+            <h1>Login form</h1>
+
+            <p>
+                Manage orders, delight customers, streamline operations,
+                and grow your restaurant with one powerful,
+                secure platform today.
+            </p>
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <div id="box1">
+
+            <p>Email</p>
+
+            <div id="input-username">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter email"
+                    required
+                    autocomplete="email"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PASSWORD -->
+
+        <div id="box2">
+
+            <p>Password</p>
+
+            <div id="input-password">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter password"
+                    required
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+            <a
+                href="forgot-password.html"
+                id="forgot-pass"
+            >
+                Forgot password?
+            </a>
+
+        </div>
+
+
+
+        <!-- LOGIN -->
+
+        <div id="btn">
+
+            <button
+                id="loginBtn"
+                type="button"
+            >
+                Login
+            </button>
+
+
+            <p class="register-text">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     AUTH JS
+========================================== -->
+
+<script src="../js/auth.js"></script>
+
+
+
+<!-- ==========================================
+     LOGIN LOGIC
+========================================== -->
+
+<script>
+
+const loginBtn =
+    document.getElementById("loginBtn");
+
+
+const emailInput =
+    document.getElementById("email");
+
+
+const passwordInput =
+    document.getElementById("password");
+
+
+
+loginBtn.addEventListener(
+    "click",
+    async function () {
+
+
+        // ======================================
+        // GET INPUT
+        // ======================================
+
+        const email =
+            emailInput.value.trim();
+
+
+        const password =
+            passwordInput.value;
+
+
+        // ======================================
+        // VALIDATION
+        // ======================================
+
+        if (!email) {
+
+            alert(
+                "Please enter your email."
+            );
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        if (!password) {
+
+            alert(
+                "Please enter your password."
+            );
+
+            passwordInput.focus();
+
+            return;
+        }
+
+
+
+        try {
+
+
+            // ==================================
+            // BUTTON
+            // ==================================
+
+            loginBtn.disabled = true;
+
+            loginBtn.textContent =
+                "Logging in...";
+
+
+
+            // ==================================
+            // LOGIN API
+            // ==================================
+
+            const data =
+                await loginUser(
+                    email,
+                    password
+                );
+
+
+            console.log(
+                "Login response:",
+                data
+            );
+
+
+
+            // ==================================
+            // GET USER
+            // ==================================
+
+            const user =
+                data.user;
+
+
+            if (!user) {
+
+                throw new Error(
+                    "User information was not received."
+                );
+
+            }
+
+
+
+            // ==================================
+            // GET ROLE
+            // ==================================
+
+            const role =
+                String(
+                    user.role || ""
+                ).toLowerCase().trim();
+
+
+            console.log(
+                "Logged in user:",
+                user
+            );
+
+
+            console.log(
+                "User role:",
+                role
+            );
+
+
+
+            // ==================================
+            // SAVE USER INFO
+            // ==================================
+
+            localStorage.setItem(
+                "user",
+                JSON.stringify(user)
+            );
+
+
+
+            // ==================================
+            // ADMIN
+            // ==================================
+
+            if (role === "admin") {
+
+                alert(
+                    "Admin login successful!"
+                );
+
+
+                window.location.href =
+                    "dashboard.html";
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // STAFF
+            // ==================================
+
+            if (role === "staff") {
+
+                alert(
+                    "Staff login successful!"
+                );
+
+
+                window.location.href =
+                    "dashboard.html";
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // CUSTOMER
+            // ==================================
+
+            if (role === "customer") {
+
+                alert(
+                    "Customer login successful!"
+                );
+
+
+                /*
+                    Customer should NOT go
+                    to admin dashboard.
+
+                    First select table.
+                */
+
+                window.location.href =
+                    "customer/tables.html";
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // UNKNOWN ROLE
+            // ==================================
+
+            console.error(
+                "Unknown user role:",
+                user.role
+            );
+
+
+            alert(
+                "Login successful, but your account role is invalid."
+            );
+
+
+        } catch (error) {
+
+
+            console.error(
+                "Login error:",
+                error
+            );
+
+
+            alert(
+                error.message ||
+                "Login failed."
+            );
+
+
+        } finally {
+
+
+            loginBtn.disabled = false;
+
+            loginBtn.textContent =
+                "Login";
+
+        }
+
+    }
+);
+
+
+
+// ==========================================
+// ENTER KEY LOGIN
+// ==========================================
+
+passwordInput.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" &&
+            !loginBtn.disabled
+        ) {
+
+            loginBtn.click();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

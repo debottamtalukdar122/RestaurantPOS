@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f6f7fb;
+
+    color: #111;
+
+    min-height: 100vh;
+
+    padding-bottom: 100px;
+}
+
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.customer-header {
+
+    background: white;
+
+    padding: 20px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.05);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.restaurant-info h1 {
+
+    font-size: 28px;
+
+    color: #1d1e3b;
+}
+
+
+.restaurant-info h1 i {
+
+    color: #ff8500;
+
+    margin-right: 8px;
+}
+
+
+.restaurant-info p {
+
+    color: #777;
+
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+
+
+/* =========================================
+   CART BUTTON
+========================================= */
+
+.cart-btn {
+
+    border: none;
+
+    background: #ff8500;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+
+.cart-btn i {
+
+    margin-right: 6px;
+}
+
+
+#cartCount {
+
+    background: white;
+
+    color: #ff8500;
+
+    padding: 3px 7px;
+
+    border-radius: 50%;
+
+    margin-left: 5px;
+}
+
+
+
+/* =========================================
+   TABLE INFO
+========================================= */
+
+.table-info {
+
+    width: 88%;
+
+    max-width: 1200px;
+
+    margin: 25px auto 20px;
+
+    background: #fff4e5;
+
+    color: #d87500;
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.table-info strong {
+
+    color: #111;
+}
+
+
+
+/* =========================================
+   TOOLS
+========================================= */
+
+.menu-tools {
+
+    width: 88%;
+
+    max-width: 1200px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.search-box {
+
+    width: 320px;
+
+    background: white;
+
+    padding: 12px 17px;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: 1px solid #eee;
+}
+
+
+.search-box i {
+
+    color: #888;
+}
+
+
+.search-box input {
+
+    border: none;
+
+    outline: none;
+
+    width: 100%;
+
+    font-size: 14px;
+}
+
+
+.category-filter {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+}
+
+
+.category-btn {
+
+    border: none;
+
+    background: white;
+
+    padding: 10px 17px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    color: #555;
+}
+
+
+.category-btn.active {
+
+    background: #ff8500;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================================
+   MENU GRID
+========================================= */
+
+.menu-grid {
+
+    width: 88%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(240px, 1fr));
+
+    gap: 22px;
+}
+
+
+
+/* =========================================
+   MENU CARD
+========================================= */
+
+.menu-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.06);
+
+    transition: 0.25s;
+}
+
+
+.menu-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.10);
+}
+
+
+.menu-image {
+
+    width: 100%;
+
+    height: 170px;
+
+    background: #eee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+.menu-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.menu-image i {
+
+    font-size: 50px;
+
+    color: #bbb;
+}
+
+
+.menu-content {
+
+    padding: 18px;
+}
+
+
+.menu-category {
+
+    color: #ff8500;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    margin-bottom: 6px;
+}
+
+
+.menu-name {
+
+    font-size: 19px;
+
+    margin-bottom: 7px;
+}
+
+
+.menu-description {
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    min-height: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+.menu-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.menu-price {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #149b7b;
+}
+
+
+.add-btn {
+
+    border: none;
+
+    background: #149b7b;
+
+    color: white;
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.add-btn:hover {
+
+    background: #10886d;
+}
+
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    color: #777;
+}
+
+
+.loading i {
+
+    font-size: 35px;
+
+    margin-bottom: 12px;
+
+    color: #ff8500;
+}
+
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty-state {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    color: #777;
+}
+
+
+.empty-state i {
+
+    font-size: 50px;
+
+    color: #bbb;
+
+    margin-bottom: 15px;
+}
+
+
+.empty-state h2 {
+
+    color: #444;
+
+    margin-bottom: 8px;
+}
+
+
+
+/* =========================================
+   CART BAR
+========================================= */
+
+.cart-bar {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    max-width: 600px;
+
+    background: #1d1e3b;
+
+    color: white;
+
+    padding: 14px 18px;
+
+    border-radius: 15px;
+
+    display: none;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.2);
+
+    z-index: 200;
+}
+
+
+.cart-bar > div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+#cartItemsText {
+
+    font-size: 12px;
+
+    color: #ccc;
+}
+
+
+#cartTotal {
+
+    font-size: 18px;
+}
+
+
+#viewCartBtn {
+
+    border: none;
+
+    background: #ff8500;
+
+    color: white;
+
+    padding: 11px 16px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .customer-header {
+
+        padding: 16px 5%;
+    }
+
+
+    .restaurant-info h1 {
+
+        font-size: 22px;
+    }
+
+
+    .restaurant-info p {
+
+        display: none;
+    }
+
+
+    .menu-tools {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .search-box {
+
+        width: 100%;
+    }
+
+
+    .category-filter {
+
+        width: 100%;
+    }
+
+
+    .menu-grid {
+
+        grid-template-columns: 1fr;
+
+        width: 92%;
+    }
+
+
+    .table-info {
+
+        width: 92%;
+    }
+
+}

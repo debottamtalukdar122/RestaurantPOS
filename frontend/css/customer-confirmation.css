@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #dce9fa;
+
+    color: #111;
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.confirmation-container {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+
+/* ==========================================
+   SUCCESS CARD
+========================================== */
+
+.success-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.06);
+
+    margin-bottom: 20px;
+}
+
+
+.success-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: #ddf7e7;
+
+    color: #159681;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 35px;
+
+    margin: 0 auto 20px;
+}
+
+
+.success-card h1 {
+
+    color: #1d1e3b;
+
+    margin-bottom: 10px;
+
+    font-size: 32px;
+}
+
+
+.success-card p {
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+
+
+/* ==========================================
+   ORDER ID
+========================================== */
+
+.order-id-box {
+
+    background: #f5f7fa;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    max-width: 450px;
+
+    margin: auto;
+}
+
+
+.order-id-box span {
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+.order-id-box strong {
+
+    color: #ff8500;
+
+    font-size: 14px;
+
+    word-break: break-all;
+
+}
+
+
+
+/* ==========================================
+   ORDER CARD
+========================================== */
+
+.order-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.06);
+
+    margin-bottom: 20px;
+}
+
+
+.order-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.order-header h2 {
+
+    color: #1d1e3b;
+
+    margin-bottom: 5px;
+}
+
+
+.order-header p {
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.status.pending {
+
+    background: #fff0d8;
+
+    color: #d88912;
+}
+
+
+.status.confirmed {
+
+    background: #e1eaff;
+
+    color: #3974e8;
+}
+
+
+.status.preparing {
+
+    background: #fff0d8;
+
+    color: #ef8500;
+}
+
+
+.status.ready {
+
+    background: #ddf7e7;
+
+    color: #159681;
+}
+
+
+.status.served {
+
+    background: #ddf7e7;
+
+    color: #159681;
+}
+
+
+.status.cancelled {
+
+    background: #ffe0e0;
+
+    color: #dc3838;
+}
+
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-info {
+
+    background: #f7f9fc;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.table-info > i {
+
+    font-size: 22px;
+
+    color: #ff8500;
+}
+
+
+.table-info div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.table-info span {
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+.table-info strong {
+
+    color: #1d1e3b;
+}
+
+
+
+/* ==========================================
+   ITEMS
+========================================== */
+
+.items-title {
+
+    color: #1d1e3b;
+
+    margin-bottom: 12px;
+}
+
+
+.order-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.item-left h4 {
+
+    color: #222;
+
+    margin-bottom: 5px;
+}
+
+
+.item-left p {
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.item-price {
+
+    font-weight: bold;
+
+    color: #159681;
+}
+
+
+
+/* ==========================================
+   TOTAL
+========================================== */
+
+.total-section {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top: 2px solid #eee;
+}
+
+
+.total-section span {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #1d1e3b;
+}
+
+
+.total-section strong {
+
+    font-size: 24px;
+
+    color: #159681;
+}
+
+
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.actions {
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.actions button {
+
+    flex: 1;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.primary-btn {
+
+    background: #159681;
+
+    color: white;
+}
+
+
+.primary-btn:hover {
+
+    background: #107c6b;
+}
+
+
+.secondary-btn {
+
+    background: #1d1e3b;
+
+    color: white;
+}
+
+
+.secondary-btn:hover {
+
+    background: #292b52;
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 20px 12px;
+
+    }
+
+
+    .success-card {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .success-card h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .order-header {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .order-id-box {
+
+        flex-direction: column;
+
+        gap: 7px;
+
+    }
+
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.order-food-image,
+.order-food-placeholder {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.order-food-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f3f5;
+    color: #ff8500;
+    font-size: 25px;
+}
+
+.item-details h4 {
+    margin: 0 0 5px;
+}
+
+.item-details p {
+    margin: 0;
+    color: #777;
+}
+
+.item-price {
+    white-space: nowrap;
+}

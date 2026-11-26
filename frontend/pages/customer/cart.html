@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cart | Restaurant</title>
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Cart CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../../css/customer-cart.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="cart-header">
+
+        <div>
+
+            <h1>
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Your Cart
+
+            </h1>
+
+            <p>
+                Review your order before placing it
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-menu-btn"
+            id="backMenuBtn"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Menu
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================================
+         TABLE INFORMATION
+    ========================================== -->
+
+    <section class="table-info">
+
+        <div>
+
+            <i class="fa-solid fa-table"></i>
+
+            <span>
+                Table
+            </span>
+
+        </div>
+
+
+        <strong id="tableNumber">
+            Loading...
+        </strong>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="cart-container">
+
+
+        <!-- =====================================
+             CART ITEMS
+        ====================================== -->
+
+        <section class="cart-items-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Your Items
+                    </h2>
+
+                    <p id="itemCount">
+                        0 items
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CART ITEMS -->
+
+            <div
+                id="cartItems"
+                class="cart-items"
+            >
+
+            </div>
+
+
+            <!-- EMPTY CART -->
+
+            <div
+                id="emptyCart"
+                class="empty-cart"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h2>
+                    Your Cart is Empty
+                </h2>
+
+                <p>
+                    Add some delicious food from our menu.
+                </p>
+
+
+                <button
+                    id="emptyCartMenuBtn"
+                    class="go-menu-btn"
+                >
+
+                    Browse Menu
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ORDER SUMMARY
+        ====================================== -->
+
+        <aside class="order-summary">
+
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Items
+                </span>
+
+                <strong id="summaryItems">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Tax
+                </span>
+
+                <strong id="tax">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Service Charge
+                </span>
+
+                <strong id="serviceCharge">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-divider"></div>
+
+
+            <div class="total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="total">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <button
+                id="placeOrderBtn"
+                class="place-order-btn"
+            >
+
+                <i class="fa-solid fa-check"></i>
+
+                Place Order
+
+            </button>
+
+
+        </aside>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         SUCCESS MODAL
+    ========================================== -->
+
+    <div
+        id="successModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+            <h2>
+                Order Placed!
+            </h2>
+
+
+            <p>
+                Your order has been placed successfully.
+            </p>
+
+
+            <p class="order-number">
+
+                Order ID:
+
+                <strong id="orderId">
+                    -
+                </strong>
+
+            </p>
+
+
+            <button
+                id="successMenuBtn"
+                class="go-menu-btn"
+            >
+
+                Order More
+
+                <i class="fa-solid fa-utensils"></i>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="../../js/customer/cart.js"></script>
+
+</body>
+
+</html>

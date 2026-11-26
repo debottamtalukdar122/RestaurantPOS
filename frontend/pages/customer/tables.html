@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Select Table | Restaurant</title>
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #f5f6fa;
+
+            color: #1d1e3b;
+
+        }
+
+
+        .header {
+
+            background: white;
+
+            padding: 25px 60px;
+
+            box-shadow:
+                0 2px 10px rgba(0,0,0,0.08);
+
+        }
+
+
+        .header h1 {
+
+            font-size: 30px;
+
+        }
+
+
+        .header h1 i {
+
+            color: #ff8500;
+
+            margin-right: 10px;
+
+        }
+
+
+        .header p {
+
+            margin-top: 8px;
+
+            color: #777;
+
+        }
+
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: 50px auto;
+
+            padding: 0 25px;
+
+        }
+
+
+        .title {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .title h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .title p {
+
+            color: #777;
+
+        }
+
+
+        #tableGrid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 25px;
+
+        }
+
+
+        .table-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+
+        }
+
+
+        .table-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.12);
+
+        }
+
+
+        .table-icon {
+
+            font-size: 45px;
+
+            color: #ff8500;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .table-card h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .table-status {
+
+            color: #159681;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+
+        }
+
+
+        .select-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: #159681;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .select-btn:hover {
+
+            background: #107c6b;
+
+        }
+
+
+        .select-btn:disabled {
+
+            background: #aaa;
+
+            cursor: not-allowed;
+
+        }
+
+
+        #loading {
+
+            text-align: center;
+
+            font-size: 18px;
+
+            color: #777;
+
+        }
+
+
+        #emptyState {
+
+            display: none;
+
+            text-align: center;
+
+            color: #777;
+
+            margin-top: 50px;
+
+        }
+
+
+        #errorState {
+
+            display: none;
+
+            text-align: center;
+
+            color: #ff4d55;
+
+            margin-top: 50px;
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header {
+
+                padding: 20px;
+
+            }
+
+            .container {
+
+                margin-top: 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header class="header">
+
+        <h1>
+
+            <i class="fa-solid fa-utensils"></i>
+
+            Restaurant POS
+
+        </h1>
+
+        <p>
+            Welcome! Please select your table.
+        </p>
+
+    </header>
+
+
+
+    <div class="container">
+
+
+        <div class="title">
+
+            <h2>Select Your Table</h2>
+
+            <p>
+                Choose the table where you are sitting
+            </p>
+
+        </div>
+
+
+        <div id="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading tables...
+
+        </div>
+
+
+        <div id="tableGrid"></div>
+
+
+        <div id="emptyState">
+
+            <i
+                class="fa-solid fa-table"
+                style="font-size:50px;"
+            ></i>
+
+            <h2>No Tables Available</h2>
+
+            <p>
+                Please contact the restaurant staff.
+            </p>
+
+        </div>
+
+
+        <div id="errorState">
+
+            <i
+                class="fa-solid fa-circle-exclamation"
+                style="font-size:50px;"
+            ></i>
+
+            <h2>Unable to load tables</h2>
+
+            <p id="errorMessage"></p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="../../js/customer/tables.js"></script>
+
+</body>
+
+</html>

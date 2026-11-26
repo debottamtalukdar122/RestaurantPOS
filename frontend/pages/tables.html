@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tables | Restaurant POS</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../CSS/tables.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../Images/logo.png" alt="Restaurant Logo">
+            </div>
+
+
+            <ul class="sidebar-menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="menu.html">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+
+
+                <li class="active">
+                    <a href="tables.html">
+                        <i class="fa-solid fa-table"></i>
+                        <span>Tables</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="staff.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Staff</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="reports.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <button class="logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+
+            <!-- HEADER -->
+
+            <header class="top-header">
+
+                <div>
+
+                    <h1>Tables</h1>
+
+                    <p>
+                        Manage restaurant tables and seating
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="add-table-btn"
+                    id="addTableBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Table
+
+                </button>
+
+            </header>
+
+
+
+            <!-- ================= TOP CONTROLS ================= -->
+
+            <section class="table-tools">
+
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchTable"
+                        placeholder="Search table...">
+
+                </div>
+
+
+                <div class="status-filter">
+
+                    <button
+                        class="filter-tab active"
+                        data-status="All">
+
+                        All
+
+                    </button>
+
+
+                    <button
+                        class="filter-tab"
+                        data-status="Available">
+
+                        Available
+
+                    </button>
+
+
+                    <button
+                        class="filter-tab"
+                        data-status="Occupied">
+
+                        Occupied
+
+                    </button>
+
+
+                    <button
+                        class="filter-tab"
+                        data-status="Reserved">
+
+                        Reserved
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= SUMMARY ================= -->
+
+            <section class="summary-cards">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon available-icon">
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>Available</p>
+
+                        <h2 id="availableCount">0</h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon occupied-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>Occupied</p>
+
+                        <h2 id="occupiedCount">0</h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon reserved-icon">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>Reserved</p>
+
+                        <h2 id="reservedCount">0</h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon total-icon">
+
+                        <i class="fa-solid fa-table"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p>Total Tables</p>
+
+                        <h2 id="totalCount">0</h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= TABLE GRID ================= -->
+
+            <section
+                class="tables-grid"
+                id="tablesGrid">
+
+            </section>
+
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="empty-state"
+                id="emptyState">
+
+                <i class="fa-solid fa-table"></i>
+
+                <h2>No Tables Found</h2>
+
+                <p>
+                    Add a table or change your filter.
+                </p>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================= ADD TABLE MODAL ================= -->
+
+    <div
+        class="modal"
+        id="tableModal">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+                    Add Table
+                </h2>
+
+
+                <button
+                    class="close-btn"
+                    id="closeModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="tableForm">
+
+
+                <input
+                    type="hidden"
+                    id="editTableId">
+
+
+                <label>
+                    Table Name / Number
+                </label>
+
+                <input
+                    type="text"
+                    id="tableNumber"
+                    placeholder="e.g. Table 1"
+                    required>
+
+
+                <label>
+                    Number of Seats
+                </label>
+
+                <input
+                    type="number"
+                    id="tableSeats"
+                    min="1"
+                    max="50"
+                    placeholder="e.g. 4"
+                    required>
+
+
+                <label>
+                    Status
+                </label>
+
+                <select id="tableStatus">
+
+                    <option value="Available">
+                        Available
+                    </option>
+
+                    <option value="Occupied">
+                        Occupied
+                    </option>
+
+                    <option value="Reserved">
+                        Reserved
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    Save Table
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="../js/tables.js"></script>
+
+</body>
+
+</html>

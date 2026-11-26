@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Settings | Restaurant POS</title>
+
+
+    <!-- Settings CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../CSS/settings.css"
+    >
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img
+                src="../Images/logo.png"
+                alt="Restaurant Logo"
+            >
+
+        </div>
+
+
+        <!-- SIDEBAR MENU -->
+
+        <ul class="sidebar-menu">
+
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="orders.html">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    Orders
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="menu.html">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    Menu
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="tables.html">
+
+                    <i class="fa-solid fa-table"></i>
+
+                    Tables
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="staff.html">
+
+                    <i class="fa-solid fa-user-group"></i>
+
+                    Staff
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Reports
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logout_btn"
+            class="logout"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main">
+
+
+        <h1>System Settings</h1>
+
+
+        <form id="settingsForm">
+
+
+            <!-- ==========================================
+                 RESTAURANT INFORMATION
+            =========================================== -->
+
+            <h2 class="section-title">
+                Restaurant Information
+            </h2>
+
+
+            <!-- Restaurant Name -->
+
+            <div class="form-group">
+
+                <label for="restaurantName">
+                    Restaurant Name
+                </label>
+
+                <input
+                    type="text"
+                    id="restaurantName"
+                    name="restaurantName"
+                    placeholder="Enter restaurant name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Address -->
+
+            <div class="form-group">
+
+                <label for="restaurantAddress">
+                    Restaurant Address
+                </label>
+
+                <input
+                    type="text"
+                    id="restaurantAddress"
+                    name="address"
+                    placeholder="Enter restaurant address"
+                    required
+                >
+
+                <small>
+                    Will appear on invoices
+                </small>
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="form-group">
+
+                <label for="restaurantPhone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="restaurantPhone"
+                    name="phone"
+                    placeholder="Enter restaurant phone number"
+                >
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="restaurantEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="restaurantEmail"
+                    name="email"
+                    placeholder="Enter restaurant email"
+                >
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 GST INFORMATION
+            =========================================== -->
+
+            <h2 class="section-title">
+                GST & Tax Information
+            </h2>
+
+
+            <!-- GST Number -->
+
+            <div class="form-group">
+
+                <label for="gstNumber">
+                    GST Number
+                </label>
+
+                <input
+                    type="text"
+                    id="gstNumber"
+                    name="gstNumber"
+                    placeholder="Enter GST Number"
+                >
+
+            </div>
+
+
+            <!-- GST Mode -->
+
+            <div class="form-group">
+
+                <label for="gstMode">
+                    GST Mode
+                </label>
+
+                <select
+                    id="gstMode"
+                    name="gstMode"
+                >
+
+                    <option value="exclusive">
+                        Exclusive (Price + Tax)
+                    </option>
+
+                    <option value="inclusive">
+                        Inclusive (Tax Included)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Tax Rate -->
+
+            <div class="form-group">
+
+                <label for="taxRate">
+                    Tax Rate (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="taxRate"
+                    name="taxRate"
+                    min="0"
+                    step="0.01"
+                    placeholder="e.g. 5"
+                >
+
+            </div>
+
+
+            <!-- Service Charge -->
+
+            <div class="form-group">
+
+                <label for="serviceCharge">
+                    Service Charge (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="serviceCharge"
+                    name="serviceCharge"
+                    min="0"
+                    step="0.01"
+                    placeholder="e.g. 5"
+                >
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 BILLING
+            =========================================== -->
+
+            <h2 class="section-title">
+                Billing
+            </h2>
+
+
+            <!-- Currency -->
+
+            <div class="form-group">
+
+                <label for="currency">
+                    Currency
+                </label>
+
+                <select
+                    id="currency"
+                    name="currency"
+                >
+
+                    <option value="INR">
+                        INR - ₹
+                    </option>
+
+                    <option value="USD">
+                        USD - $
+                    </option>
+
+                    <option value="EUR">
+                        EUR - €
+                    </option>
+
+                    <option value="GBP">
+                        GBP - £
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 RESTAURANT TIMING
+            =========================================== -->
+
+            <h2 class="section-title">
+                Restaurant Timing
+            </h2>
+
+
+            <!-- Opening Time -->
+
+            <div class="form-group">
+
+                <label for="openingTime">
+                    Opening Time
+                </label>
+
+                <input
+                    type="time"
+                    id="openingTime"
+                    name="openingTime"
+                >
+
+            </div>
+
+
+            <!-- Closing Time -->
+
+            <div class="form-group">
+
+                <label for="closingTime">
+                    Closing Time
+                </label>
+
+                <input
+                    type="time"
+                    id="closingTime"
+                    name="closingTime"
+                >
+
+            </div>
+
+
+
+            <!-- SAVE -->
+
+            <button
+                id="btn"
+                type="submit"
+            >
+
+                Save Settings
+
+            </button>
+
+
+        </form>
+
+
+    </main>
+
+</div>
+
+
+
+<script src="../js/settings.js"></script>
+
+</body>
+
+</html>

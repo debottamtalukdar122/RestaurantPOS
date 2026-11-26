@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-image: url("../images/mudassir-zaheer-gcx43sn5o5Q-unsplash.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    position: relative;
+}
+
+
+/* Dark overlay over background */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.20);
+
+    z-index: 0;
+}
+
+
+/* Main container */
+
+.register-container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding-left: 24%;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* Dark transparent glass card */
+
+.register-card {
+    width: 530px;
+
+    padding: 38px 40px 30px;
+
+    border-radius: 22px;
+
+    background: rgba(20, 20, 25, 0.58);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.40);
+
+    text-align: left;
+
+    color: white;
+}
+
+
+/* Logo */
+
+.logo {
+    display: block;
+
+    width: 105px;
+    height: 105px;
+
+    object-fit: contain;
+
+    margin: 0 auto 15px;
+}
+
+
+/* Heading */
+
+.register-card h1 {
+    text-align: center;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+
+/* Subtitle */
+
+.subtitle {
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    margin-bottom: 25px;
+}
+
+
+/* Form group */
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+
+/* Labels */
+
+.form-group label {
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    color: white;
+
+    margin-bottom: 7px;
+}
+
+
+/* Inputs */
+
+.form-group input {
+    width: 100%;
+
+    height: 55px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: #222;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+
+.form-group input:focus {
+    box-shadow:
+        0 0 0 3px rgba(255, 132, 0, 0.35);
+}
+
+
+/* Create Account button */
+
+#registerBtn {
+    width: 100%;
+
+    height: 57px;
+
+    margin-top: 7px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #ff8500;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#registerBtn:hover {
+    background: #ed7800;
+
+    transform: translateY(-1px);
+}
+
+
+#registerBtn:active {
+    transform: translateY(0);
+}
+
+
+#registerBtn:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+}
+
+
+/* Login text */
+
+.login-text {
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 15px;
+}
+
+
+.login-text a {
+    color: #ff8500;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    margin-left: 4px;
+}
+
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .register-container {
+        justify-content: center;
+
+        padding-left: 0;
+
+        padding-right: 0;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+
+    .register-container {
+        min-height: 100vh;
+
+        height: auto;
+
+        padding: 25px 20px;
+    }
+
+
+    .register-card {
+        width: 100%;
+
+        padding: 30px 25px;
+    }
+
+
+    .register-card h1 {
+        font-size: 30px;
+    }
+
+
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+
+}

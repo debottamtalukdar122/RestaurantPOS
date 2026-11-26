@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orders | Restaurant POS</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Orders CSS -->
+    <link rel="stylesheet" href="../CSS/orders.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../Images/logo.png" alt="Restaurant Logo">
+            </div>
+
+            <ul class="sidebar-menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="orders.html">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="menu.html">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tables.html">
+                        <i class="fa-solid fa-table"></i>
+                        <span>Tables</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="staff.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Staff</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="reports.html">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <button class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div>
+                    <h1>Orders</h1>
+                    <p>Manage and track restaurant orders</p>
+                </div>
+
+                <div class="header-right">
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="searchOrder"
+                            placeholder="Search orders..."
+                        >
+                    </div>
+
+                    <button class="notification-btn">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+
+                    <div class="profile">
+                        A
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+
+            <section class="filter-section">
+
+                <div class="tabs">
+
+                    <button class="tab active" data-status="All">
+                        All Orders
+                    </button>
+
+                    <button class="tab" data-status="Pending">
+                        Pending
+                    </button>
+
+                    <button class="tab" data-status="Preparing">
+                        Preparing
+                    </button>
+
+                    <button class="tab" data-status="Completed">
+                        Completed
+                    </button>
+
+                    <button class="tab" data-status="Cancelled">
+                        Cancelled
+                    </button>
+
+                </div>
+
+                <button class="filter-btn">
+                    <i class="fa-solid fa-filter"></i>
+                    Filter
+                </button>
+
+            </section>
+
+
+            <!-- ================= ORDER TABLE ================= -->
+
+            <section class="orders-card">
+
+                <div class="table-header">
+
+                    <h2>Recent Orders</h2>
+
+                    <span id="orderCount">
+                        0 Orders
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Order ID</th>
+
+                                <th>Table</th>
+
+                                <th>Customer</th>
+
+                                <th>Items</th>
+
+                                <th>Amount</th>
+
+                                <th>Status</th>
+
+                                <th>Time</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="ordersTable">
+
+                            <!-- JavaScript will insert orders here -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Empty state -->
+
+                <div id="emptyState" class="empty-state">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                    <h3>No Orders Found</h3>
+
+                    <p>
+                        No orders match your search.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/orders.js"></script>
+
+</body>
+
+</html>

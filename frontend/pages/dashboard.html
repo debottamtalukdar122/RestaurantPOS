@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Restaurant POS Dashboard</title>
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Dashboard CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../CSS/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img
+                src="../Images/logo.png"
+                alt="Restaurant POS"
+            >
+
+        </div>
+
+
+        <!-- SIDEBAR MENU -->
+
+        <ul class="sidebar-menu">
+
+
+            <!-- Dashboard -->
+
+            <li class="active">
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Orders -->
+
+            <li>
+
+                <a href="orders.html">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span>
+                        Orders
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Menu -->
+
+            <li>
+
+                <a href="menu.html">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <span>
+                        Menu
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Tables -->
+
+            <li>
+
+                <a href="tables.html">
+
+                    <i class="fa-solid fa-table"></i>
+
+                    <span>
+                        Tables
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Staff -->
+
+            <li>
+
+                <a href="staff.html">
+
+                    <i class="fa-solid fa-user-group"></i>
+
+                    <span>
+                        Staff
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Reports -->
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Settings -->
+
+            <li>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>
+                Logout
+            </span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main">
+
+
+        <!-- ==================================================
+             NAVBAR
+        ================================================== -->
+
+        <div class="navbar">
+
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p class="welcome-text">
+                    Welcome back! Here's what's happening today.
+                </p>
+
+            </div>
+
+
+            <div class="nav-right">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="dashboardSearch"
+                        placeholder="Search orders..."
+                    >
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="notification-wrapper">
+
+                    <i
+                        class="fa-solid fa-bell notification"
+                    ></i>
+
+                    <span class="notification-dot"></span>
+
+                </div>
+
+
+                <!-- PROFILE -->
+
+                <div
+                    class="profile"
+                    id="profile"
+                >
+                    A
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             DASHBOARD CARDS
+        ================================================== -->
+
+        <section class="cards">
+
+
+            <!-- TODAY'S ORDERS -->
+
+            <div class="card orange">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <p>
+                            Today's Orders
+                        </p>
+
+                        <h2 id="todayOrders">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-receipt"></i>
+
+                    </div>
+
+                </div>
+
+
+                <span class="card-info">
+
+                    <i class="fa-solid fa-arrow-up"></i>
+
+                    Orders received today
+
+                </span>
+
+            </div>
+
+
+
+            <!-- REVENUE -->
+
+            <div class="card green">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <p>
+                            Revenue
+                        </p>
+
+                        <h2 id="revenue">
+                            ₹0
+                        </h2>
+
+                    </div>
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    </div>
+
+                </div>
+
+
+                <span class="card-info">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Today's revenue
+
+                </span>
+
+            </div>
+
+
+
+            <!-- PENDING ORDERS -->
+
+            <div class="card blue">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <p>
+                            Pending Orders
+                        </p>
+
+                        <h2 id="pendingOrders">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                    </div>
+
+                </div>
+
+
+                <span class="card-info">
+
+                    <i class="fa-solid fa-hourglass-half"></i>
+
+                    Needs attention
+
+                </span>
+
+            </div>
+
+
+
+            <!-- TABLES -->
+
+            <div class="card purple">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <p>
+                            Tables
+                        </p>
+
+                        <h2 id="totalTables">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-table"></i>
+
+                    </div>
+
+                </div>
+
+
+                <span
+                    class="card-info"
+                    id="tableInfo"
+                >
+
+                    <i class="fa-solid fa-chair"></i>
+
+                    Restaurant tables
+
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <section class="action">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                    <p>
+                        Quickly access the most used features.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="buttons">
+
+
+                <!-- MANAGE MENU -->
+
+                <button
+                    id="manageMenu"
+                    class="action-btn menu-btn"
+                >
+
+                    <span class="action-icon">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Manage Menu
+                        </strong>
+
+                        <small>
+                            Add or edit food items
+                        </small>
+
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+
+                </button>
+
+
+
+                <!-- VIEW ORDERS -->
+
+                <button
+                    id="viewOrders"
+                    class="action-btn order-btn"
+                >
+
+                    <span class="action-icon">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            View Orders
+                        </strong>
+
+                        <small>
+                            Manage customer orders
+                        </small>
+
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+
+                </button>
+
+
+
+                <!-- MANAGE TABLES -->
+
+                <button
+                    id="manageTables"
+                    class="action-btn table-btn"
+                >
+
+                    <span class="action-icon">
+
+                        <i class="fa-solid fa-table"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Manage Tables
+                        </strong>
+
+                        <small>
+                            Check table availability
+                        </small>
+
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+
+                </button>
+
+
+
+                <!-- QR CODES -->
+
+                <button
+                    id="printQR"
+                    class="action-btn qr-btn"
+                >
+
+                    <span class="action-icon">
+
+                        <i class="fa-solid fa-qrcode"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Print QR Codes
+                        </strong>
+
+                        <small>
+                            Generate table QR codes
+                        </small>
+
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RECENT ORDERS
+        ================================================== -->
+
+        <section class="recent-section">
+
+
+            <div class="section-header">
+
+
+                <div>
+
+                    <h2>
+                        Recent Orders
+                    </h2>
+
+                    <p>
+                        Latest orders received by the restaurant.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="seeAllOrders"
+                    class="see-all"
+                >
+
+                    View All
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ORDERS TABLE -->
+
+            <div class="orders-table-wrapper">
+
+                <table class="orders-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Order ID
+                            </th>
+
+                            <th>
+                                Table
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Time
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="recentOrders">
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="loading-orders"
+                            >
+
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                                Loading orders...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="../js/dashboard.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Order Confirmed | Restaurant</title>
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../../css/customer-confirmation.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="confirmation-container">
+
+
+        <!-- SUCCESS -->
+
+        <section class="success-card">
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+            <h1>
+                Order Confirmed!
+            </h1>
+
+
+            <p>
+                Thank you! Your order has been received
+                successfully.
+            </p>
+
+
+            <div class="order-id-box">
+
+                <span>
+                    Order ID
+                </span>
+
+                <strong id="orderId">
+                    Loading...
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ORDER DETAILS -->
+
+        <section class="order-card">
+
+
+            <div class="order-header">
+
+                <div>
+
+                    <h2>
+                        Order Details
+                    </h2>
+
+                    <p id="orderTime">
+                        Just now
+                    </p>
+
+                </div>
+
+
+                <span
+                    id="orderStatus"
+                    class="status pending"
+                >
+                    Pending
+                </span>
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="table-info">
+
+                <i class="fa-solid fa-table"></i>
+
+                <div>
+
+                    <span>
+                        Table
+                    </span>
+
+                    <strong id="tableNumber">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ITEMS -->
+
+            <h3 class="items-title">
+                Ordered Items
+            </h3>
+
+
+            <div id="orderItems">
+
+                <!-- JavaScript -->
+
+            </div>
+
+
+
+            <!-- TOTAL -->
+
+            <div class="total-section">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <strong id="totalAmount">
+                    ₹0.00
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ACTIONS -->
+
+        <section class="actions">
+
+            <button
+                id="menuBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-utensils"></i>
+
+                Order More
+
+            </button>
+
+
+            <button
+                id="homeBtn"
+                class="secondary-btn"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                Back to Home
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="../../js/customer/order-confirmation.js"></script>
+
+</body>
+
+</html>

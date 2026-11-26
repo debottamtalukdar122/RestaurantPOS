@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Staff Management | Restaurant POS</title>
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../CSS/staff.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <img
+                src="../Images/logo.png"
+                alt="Restaurant Logo"
+            >
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="orders.html">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span>Orders</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="menu.html">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <span>Menu</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="tables.html">
+
+                    <i class="fa-solid fa-table"></i>
+
+                    <span>Tables</span>
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                <a href="staff.html">
+
+                    <i class="fa-solid fa-user-group"></i>
+
+                    <span>Staff</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>Reports</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+
+        <button
+            class="logout-btn"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Logout</span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>
+                    Staff Management
+                </h1>
+
+                <p>
+                    Manage restaurant staff and employees
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-staff-btn"
+                id="addStaffBtn"
+            >
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Staff
+
+            </button>
+
+        </header>
+
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="summary-cards">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon total">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Total Staff</p>
+
+                    <h2 id="totalStaff">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon active">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Active</p>
+
+                    <h2 id="activeStaff">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon inactive">
+
+                    <i class="fa-solid fa-user-xmark"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Inactive</p>
+
+                    <h2 id="inactiveStaff">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon manager">
+
+                    <i class="fa-solid fa-user-tie"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Managers</p>
+
+                    <h2 id="managerCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= TOOLS ================= -->
+
+        <section class="staff-tools">
+
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchStaff"
+                    placeholder="Search staff..."
+                >
+
+            </div>
+
+
+            <select id="roleFilter">
+
+                <option value="All">
+                    All Roles
+                </option>
+
+                <option value="Manager">
+                    Manager
+                </option>
+
+                <option value="Cashier">
+                    Cashier
+                </option>
+
+                <option value="Chef">
+                    Chef
+                </option>
+
+                <option value="Waiter">
+                    Waiter
+                </option>
+
+            </select>
+
+
+        </section>
+
+
+
+        <!-- ================= STAFF TABLE ================= -->
+
+        <section class="staff-card">
+
+
+            <div class="staff-card-header">
+
+                <div>
+
+                    <h2>
+                        Staff Members
+                    </h2>
+
+                    <p>
+                        Manage all restaurant employees
+                    </p>
+
+                </div>
+
+
+                <span id="staffCount">
+                    0 Staff
+                </span>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Staff
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Phone
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Salary
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="staffTable"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>
+                    No Staff Found
+                </h3>
+
+                <p>
+                    Try another search or add a staff member.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= STAFF MODAL ================= -->
+
+<div
+    class="modal"
+    id="staffModal"
+>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Add Staff
+            </h2>
+
+
+            <button
+                class="close-btn"
+                id="closeModal"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <form id="staffForm">
+
+
+            <input
+                type="hidden"
+                id="editStaffId"
+            >
+
+
+            <!-- NAME -->
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="staffName"
+                placeholder="e.g. John Manager"
+                required
+            >
+
+
+
+            <!-- ROLE -->
+
+            <label>
+                Role
+            </label>
+
+            <select
+                id="staffRole"
+                required
+            >
+
+                <option value="">
+                    Select Role
+                </option>
+
+                <option value="Manager">
+                    Manager
+                </option>
+
+                <option value="Cashier">
+                    Cashier
+                </option>
+
+                <option value="Chef">
+                    Chef
+                </option>
+
+                <option value="Waiter">
+                    Waiter
+                </option>
+
+            </select>
+
+
+
+            <!-- PHONE -->
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                type="tel"
+                id="staffPhone"
+                placeholder="9876543210"
+                required
+            >
+
+
+
+            <!-- EMAIL -->
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="staffEmail"
+                placeholder="john@example.com"
+                required
+            >
+
+
+
+            <!-- SALARY -->
+
+            <label>
+                Salary
+            </label>
+
+            <input
+                type="number"
+                id="staffSalary"
+                placeholder="30000"
+                min="0"
+                required
+            >
+
+
+
+            <!-- STATUS -->
+
+            <label>
+                Status
+            </label>
+
+            <select
+                id="staffStatus"
+            >
+
+                <option value="Active">
+                    Active
+                </option>
+
+                <option value="Inactive">
+                    Inactive
+                </option>
+
+            </select>
+
+
+
+            <!-- SAVE -->
+
+            <button
+                type="submit"
+                class="save-btn"
+            >
+
+                Save Staff
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="../js/staff.js"></script>
+
+
+</body>
+
+</html>

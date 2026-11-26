@@ -1,0 +1,886 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    background: #dce9fa;
+
+    color: #111;
+}
+
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+
+    width: 285px;
+
+    height: 100vh;
+
+    background: #1d1e3b;
+
+    padding: 35px 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 45px;
+}
+
+
+.logo img {
+    width: 200px;
+}
+
+
+.sidebar-menu {
+    list-style: none;
+}
+
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+
+.sidebar-menu a {
+
+    text-decoration: none;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    transition: 0.25s;
+}
+
+
+.sidebar-menu a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+
+.sidebar-menu li.active a {
+    background: #ff8500;
+}
+
+
+.sidebar-menu i {
+    width: 22px;
+}
+
+
+.logout-btn {
+
+    margin-top: auto;
+
+    border: none;
+
+    background: #ff4d55;
+
+    color: white;
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+     display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+    transition: 0.3s;
+}
+
+
+/* ================= MAIN ================= */
+
+.main-content {
+
+    margin-left: 285px;
+
+    width: calc(100% - 285px);
+
+    min-height: 100vh;
+
+    padding: 35px 40px;
+}
+
+
+/* ================= HEADER ================= */
+
+.top-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.top-header h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+}
+
+
+.top-header p {
+
+    color: #68758a;
+}
+
+
+.add-staff-btn {
+
+    border: none;
+
+    background: #149b7b;
+
+    color: white;
+
+    padding: 14px 23px;
+
+    border-radius: 25px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.add-staff-btn:hover {
+
+    background: #10886d;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.summary-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.05);
+}
+
+
+.summary-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.summary-icon.total {
+
+    background: #e5eaff;
+
+    color: #476ee8;
+}
+
+
+.summary-icon.active {
+
+    background: #ddf7e7;
+
+    color: #149454;
+}
+
+
+.summary-icon.inactive {
+
+    background: #ffe2e2;
+
+    color: #e33c3c;
+}
+
+
+.summary-icon.manager {
+
+    background: #fff0dc;
+
+    color: #ed8500;
+}
+
+
+.summary-card p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.summary-card h2 {
+
+    font-size: 25px;
+}
+
+
+/* ================= TOOLS ================= */
+
+.staff-tools {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.search-box {
+
+    width: 320px;
+
+    background: white;
+
+    padding: 12px 18px;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.search-box i {
+    color: #888;
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+}
+
+
+#roleFilter {
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    padding: 12px 18px;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+/* ================= STAFF CARD ================= */
+
+.staff-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.05);
+}
+
+
+.staff-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.staff-card-header h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+
+.staff-card-header p {
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+.staff-card-header span {
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ================= TABLE ================= */
+
+.table-container {
+
+    overflow-x: auto;
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+}
+
+
+thead {
+
+    background: #f7f9fc;
+}
+
+
+th {
+
+    text-align: left;
+
+    padding: 16px;
+
+    font-size: 13px;
+
+    color: #68758a;
+}
+
+
+td {
+
+    padding: 17px 16px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+}
+
+
+tbody tr:hover {
+
+    background: #fafafa;
+}
+
+
+/* ================= STAFF NAME ================= */
+
+.staff-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.avatar {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #e9d5ff;
+
+    color: #7625a2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+.staff-name {
+
+    font-weight: bold;
+
+    margin-bottom: 3px;
+}
+
+
+/* ================= ROLE ================= */
+
+.role {
+
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    background: #f0f2f7;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+
+/* ================= STATUS ================= */
+
+.status {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.status.active {
+
+    background: #ddf7e7;
+
+    color: #149454;
+}
+
+
+.status.inactive {
+
+    background: #ffe0e0;
+
+    color: #dc3838;
+}
+
+
+/* ================= ACTION ================= */
+
+.action-btn {
+
+    border: none;
+
+    background: #f3f3f3;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin-right: 5px;
+}
+
+
+.action-btn:hover {
+
+    background: #ff8500;
+
+    color: white;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty-state {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    color: #777;
+}
+
+
+.empty-state i {
+
+    font-size: 45px;
+
+    color: #bbb;
+
+    margin-bottom: 15px;
+}
+
+
+.empty-state h3 {
+
+    color: #444;
+
+    margin-bottom: 8px;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+.modal-content {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.close-btn {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f1f1;
+
+    cursor: pointer;
+}
+
+
+#staffForm {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+#staffForm label {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-top: 7px;
+}
+
+
+#staffForm input,
+#staffForm select {
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+#staffForm input:focus,
+#staffForm select:focus {
+
+    border-color: #ff8500;
+}
+
+
+.save-btn {
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #149b7b;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .summary-cards {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+
+        width: 80px;
+
+        padding: 25px 10px;
+    }
+
+
+    .logo img {
+        width: 55px;
+    }
+
+
+    .sidebar-menu a {
+
+        justify-content: center;
+    }
+
+
+    .sidebar-menu span,
+    .logout-btn span {
+
+        display: none;
+    }
+
+
+    .main-content {
+
+        margin-left: 80px;
+
+        width: calc(100% - 80px);
+
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .top-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+
+    .add-staff-btn {
+
+        width: 100%;
+    }
+
+
+    .staff-tools {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+
+    .search-box {
+
+        width: 100%;
+    }
+
+
+    #roleFilter {
+
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .sidebar {
+
+        width: 65px;
+    }
+
+
+    .main-content {
+
+        margin-left: 65px;
+
+        width: calc(100% - 65px);
+
+        padding: 18px;
+    }
+
+
+    .summary-cards {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .staff-card {
+
+        padding: 15px;
+    }
+
+}
